@@ -1,5 +1,9 @@
 # BudgetCalculator
 
+Its a simple Budget Calculator where you can add your income and expenses and the remaining balance will be displayed.
+
+I have used a simple templated driven form
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.1.
 
 ## Development server
