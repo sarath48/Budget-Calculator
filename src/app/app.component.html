@@ -1,42 +1,85 @@
 <div class="container-fluid">
   <h1
-    class="text-center p-2"
+    class="text-center p-2 mb-0"
     style="background-color: rgba(181, 59, 199, 0.365)"
   >
     BUDGET CALCULATOR
   </h1>
-  <p class="bg-dark p-5 text-center fs-1 fw-bold">{{ remainingAmount }}</p>
-  <div class="d-flex justify-content-center align-items-center shadow p-3 mb-5 bg-body rounded">
-    <form >
+  <p class="bg-dark p-5 text-center fs-1 fw-bold text-white">
+    {{ remainingAmount }}
+  </p>
+  <div
+    class="d-flex justify-content-center align-items-center shadow p-3 mb-5 bg-body rounded"
+  >
+    <form #incomeForm="ngForm" (ngSubmit)="add()">
       <div class="row">
         <div class="col-3">
-
-          <select class="form-select" id="inlineFormSelectPref">
-
-            <option value="income">INCOME</option>
-            <option value="expense">EXPENSE</option>
+          <select
+            class="form-select"
+            id="inlineFormSelectPref"
+            ngModel
+            name="expenseType"
+          >
+            <option [ngValue]="'income'">INCOME</option>
+            <option [ngValue]="'expense'">EXPENSE</option>
           </select>
         </div>
         <div class="col-2">
-          <input type="text" class="form-control" placeholder="Amount" aria-label="Amount">
+          <input
+            type="number"
+            class="form-control"
+            placeholder="Amount"
+            aria-label="Amount"
+            ngModel
+            name="amount"
+          />
         </div>
         <div class="col-5">
-          <input type="text" class="form-control" placeholder="Description" aria-label="Description">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Description"
+            aria-label="Description"
+            ngModel
+            name="description"
+          />
         </div>
         <div class="col-2">
           <button type="submit" class="btn btn-primary">Add</button>
         </div>
+      </div>
     </form>
-
   </div>
-  <div class="d-flex justify-content-center align-items-center">
-    <div class="row">
-      <div class="col-4">
-        <h3 class="text-success">INCOME</h3>
-
-      </div>
-      <div class="col-4">
-        <h3 class="text-danger">EXPENSES</h3>
-      </div>
+  <div class="d-flex justify-content-center">
+    <div class="me-5">
+      <h3 class="text-success">INCOME</h3>
+      <table class="table-secondary">
+        <tbody>
+          <tr *ngFor="let income of incomeArray">
+            <td
+              scope="row"
+              class="shadow-none p-3 mb-5 bg-light rounded text-success"
+            >
+              <p>{{ income.amount }} | {{ income.description }}</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="ms-5">
+      <h3 class="text-danger">EXPENSES</h3>
+      <table class="table-secondary">
+        <tbody>
+          <tr *ngFor="let expense of expensesArray">
+            <th
+              scope="row"
+              class="shadow-none p-3 mb-5 bg-light rounded text-danger"
+            >
+              {{ expense.amount }} |{{ expense.description }}
+            </th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
