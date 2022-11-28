@@ -4,7 +4,7 @@ Its a simple Budget Calculator where you can add your income and expenses and th
 
 I have used a simple templated driven form
 
-Choose from the dropdown if its an expense or income and add the amount and a description about it and submit it
+Flow of the application -- Choose from the dropdown if its an expense or income and add the amount and a description about it and submit it
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.1.
 
